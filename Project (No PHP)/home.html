@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home Page</title>
+    <link rel="stylesheet" href="css/home.css"></link>
+    <script src="https://kit.fontawesome.com/4c23cd91aa.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <p class="title">Leave Application System</p>
+
+        <div class="avatar">
+            <img src="images/male.png">
+            <p>Hello, Chong</p>
+
+            <button onclick="showMenu()">
+                <i class="fa-solid fa-caret-down"></i>
+                <div class="dropdown-content">
+                    <a href="#">Home</a>
+                    <a href="#">Profile Info</a>
+                    <a href="#">Log Out</a>
+                </div>
+            </button>
+        </div>
+    </header>
+    
+    <div class="container">
+
+        <h1>Leave Application Records</h1>
+
+        <div class="records">
+
+            <div class="noRecord">
+                <img src="images/norecord.svg">
+                <h3>No Record Found</h3>
+            </div>
+
+            <div class="gotRecord">
+
+                <div class="recordTable">
+                    <table>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Email</th>
+                            <th>Contact No</th>
+                            <th>Leave Date</th>
+                            <th>Leave Type</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+    
+                        <tr>
+                            <td>1</td>
+                            <td>Chong</td>
+                            <td>IT</td>
+                            <td>chong@company.com</td>
+                            <td>0183114968</td>
+                            <td>18/04/2023</td>
+                            <td>Sick Leave</td>
+                            <td>Approved</td>
+                            <td><button title="Edit"><i class="fa-solid fa-pen-to-square editBtn"></i></button></td>
+                        </tr>
+    
+                        <tr>
+                            <td>2</td>
+                            <td>Chong</td>
+                            <td>IT</td>
+                            <td>chong@company.com</td>
+                            <td>0183114968</td>
+                            <td>23/07/2023</td>
+                            <td>Maternity Leave</td>
+                            <td>Rejected</td>
+                            <td><button title="Edit"><i class="fa-solid fa-pen-to-square editBtn"></i></button></td>
+                        </tr>
+    
+                        <tr>
+                            <td>3</td>
+                            <td>Chong</td>
+                            <td>IT</td>
+                            <td>chong@company.com</td>
+                            <td>0183114968</td>
+                            <td>03/12/2023</td>
+                            <td>Paid Leave</td>
+                            <td>Pending</td>
+                            <td><button title="Edit"><i class="fa-solid fa-pen-to-square editBtn"></i></button></td>
+                        </tr>
+    
+                    </table>
+                </div>
+            </div>
+
+            <div class="addNew">
+                <button class="newBtn">+ New</button>
+            </div>
+        </div>
+
+        <dialog class="editDialog">
+            <button class="exitBtn"><i class="fa-solid fa-xmark fa-2xl closeEditDialog"></i></button>
+            <h2>Edit Information</h2>
+
+            <form action="edit.php" method="post" class="editForm">
+                <div>
+                    <p>Current Leave Date:</p>
+                    <p>18/04/2023</p>
+    
+                    <i class="fa-solid fa-arrow-down"></i>
+    
+                    <input type="date" name="leaveDate" required>
+
+                </div>
+    
+                <div>
+                    <p>Current Leave Type:</p>
+                    <p>Sick Leave</p>
+    
+                    <i class="fa-solid fa-arrow-down"></i>
+    
+                    <select name="leaveType" required>
+                        <option value="sick">Sick Leave</option>
+                        <option value="maternity">Maternity Leave</option>
+                        <option value="paid">Paid Leave</option>
+                    </select>
+    
+                </div>
+
+                <div>
+                    <button type="submit">Submit</button>
+                    <button type="reset">Clear</button>
+                </div>
+            </form>
+        </dialog>
+
+        <dialog class="applyDialog">
+            <button class="exitBtn"><i class="fa-solid fa-xmark fa-2xl closeApplyDialog"></i></button>
+            <h2>New Leave Application</h2>
+
+            <form action="apply.php" method="post" class="applyForm">
+
+                <div>
+                    <p>Name:*</p>
+                    <input type="text" name="name" placeholder="Name" required>
+                </div> 
+
+                <div>
+                    <p>Email:*</p>
+                    <input type="text" name="email" placeholder="xxxx@company.com" required>
+                </div> 
+                
+                <div>
+                    <p>Department:*</p>
+                    <select name="department" required>
+                        <option value="it">IT</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="hr">HR</option>
+                    </select>
+                </div>
+
+                <div>
+                    <p>Leave Date:*</p>
+                    <input type="date" name="leaveDate" required>
+                </div>
+
+                <div>
+                    <p>Leave Type:*</p>
+                    <select name="leaveType" required>
+                        <option value="sick">Sick Leave</option>
+                        <option value="maternity">Maternity Leave</option>
+                        <option value="paid">Paid Leave</option>
+                    </select>
+                </div>
+
+                <div>
+                    <p>Contact No:*</p> 
+                    <input type="text" name="contactNo" placeholder="012-3456789" required>
+                </div>
+
+                <div>
+                    <button type="submit">Apply</button>
+                    <button type="reset">Clear</button>
+                </div>
+
+            </form>
+        </dialog>
+
+    </div>
+
+    <footer id="copyright"><p>&copy; Leave Application System, All Right Reserved. Designed By Chong Ming Hong</p></footer>
+    
+    <script src="javascript/home.js"></script>
+</body>
+</html>
